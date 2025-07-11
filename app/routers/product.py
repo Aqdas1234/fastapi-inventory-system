@@ -12,7 +12,7 @@ router = APIRouter(
     dependencies=[Depends(get_current_user)]  
 )
 
-# Dependency to get DB session
+
 def get_db():
     db = SessionLocal()
     try:
@@ -21,9 +21,7 @@ def get_db():
         db.close()
 
 
-# -------------------
-# PRODUCT ENDPOINTS
-# -------------------
+
 
 @router.post("/", response_model=schemas.Product)
 def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)):

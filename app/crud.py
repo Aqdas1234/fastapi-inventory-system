@@ -3,9 +3,7 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 
-# ----------------------
-# CATEGORY CRUD
-# ----------------------
+
 
 def create_category(db: Session, category: schemas.CategoryCreate):
     db_category = models.Category(name=category.name)
@@ -21,9 +19,7 @@ def get_category(db: Session, category_id: int):
     return db.query(models.Category).filter(models.Category.id == category_id).first()
 
 
-# ----------------------
-# PRODUCT CRUD
-# ----------------------
+
 
 def create_product(db: Session, product: schemas.ProductCreate):
     db_product = models.Product(
